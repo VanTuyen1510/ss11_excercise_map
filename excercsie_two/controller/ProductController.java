@@ -1,4 +1,4 @@
-package ss11_excercise_map.excercsie_two.Controller;
+package ss11_excercise_map.excercsie_two.controller;
 
 
 import ss11_excercise_map.excercsie_two.model.Product;
@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProductController {
-    private static IProductService service = new ProductServiceIpml();
 
     public static void main(String[] args) {
+          IProductService service = new ProductServiceIpml(); // Vì là thuộc tính
+
         Scanner sc = new Scanner(System.in);
         int select = 0;
         do {
@@ -22,6 +23,7 @@ public class ProductController {
             System.out.println("4.Delete product");
             System.out.println("5.Serach name product");
             System.out.println("6.Ascending product sort");
+            System.out.println("7.Reduced product sort ");
             System.out.println("-----Please input number------");
             select = Integer.parseInt(sc.nextLine());
             switch (select){
@@ -51,9 +53,10 @@ public class ProductController {
                     service.searchProduct(nameSearch);
                     break;
                 case 6:
-                    for (Product product2: service.ascendingProductSort()) {
-                        System.out.println(product2);
-                    }
+                    service.ascendingProductSort();
+                    break;
+                case 7:
+                    service.sortProductsReduced();
                     break;
             }
         }while (select > 0);

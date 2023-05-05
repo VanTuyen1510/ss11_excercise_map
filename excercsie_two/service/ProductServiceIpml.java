@@ -35,11 +35,11 @@ public class ProductServiceIpml implements IProductService {
 
     @Override
     public List<Product> ascendingProductSort() {
-        return null;
+        return repository.ascendingProductSort();
     }
 
     @Override
     public List<Product> sortProductsReduced() {
-        return null;
+        return repository.sortProductsReduced();
     }
 }

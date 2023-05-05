@@ -121,14 +121,23 @@ public class ProductRepositoryImpl implements IProductRepository {
             }
         });
         for (Product product:productList) {
-            System.out.println(product);
+            System.out.println(product.toString());
         }
         return productList;
     }
 
     @Override
     public List<Product> sortProductsReduced() {
-        return null;
+        Collections.sort(productList, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return o1.getPrice() <  o2.getPrice() ? 1 : -1;
+            }
+        });
+        for (Product product : productList) {
+            System.out.println(product.toString());
+        }
+        return productList;
     }
 
 
